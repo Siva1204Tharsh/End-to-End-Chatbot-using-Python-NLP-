@@ -1,5 +1,5 @@
 import import_ipynb
-import EndtoEnd
+from EndtoEnd import chatbot
 import streamlit as st
 counter = 0
 
@@ -12,7 +12,7 @@ def main():
     user_input = st.text_input("You:", key=f"user_input_{counter}")
 
     if user_input:
-        response = EndtoEnd.chatbot(user_input)
+        response = chatbot(user_input)
         st.text_area("Chatbot:", value=response, height=100, max_chars=None, key=f"chatbot_response_{counter}")
 
         if response.lower() in ['goodbye', 'bye']:
